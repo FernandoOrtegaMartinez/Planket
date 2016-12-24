@@ -1,0 +1,9 @@
+<resources>
+    <!-- Default screen margins, per the Android Design guidelines. -->
+
+    <dimen name="header_height">450dp</dimen>
+    <dimen name="viewholder_search_height">190dp</dimen>
+    <dimen name="loader_margin_profile">370dp</dimen>
+
+
+</resources>

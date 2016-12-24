@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <integer name="showcase_items">4</integer>
+    <integer name="showcase_rows">2</integer>
+    <integer name="showcase_item_height">370</integer>
+
+</resources>

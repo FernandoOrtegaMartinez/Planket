@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <item type="id" name="user_photos_cardview" />
+    <item type="id" name="user_faves_cardview" />
+</resources>
+

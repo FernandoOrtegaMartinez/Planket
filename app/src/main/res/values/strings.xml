@@ -1,0 +1,41 @@
+<resources>
+    <string name="app_name">Planket</string>
+    <string name="app_title">Planket</string>
+    <string name="callback_scheme">planket</string>
+    <string name="drawer_action_interestingness">Interestingness</string>
+    <string name="drawer_action_login">Log in to Flickr</string>
+    <string name="drawer_action_logout">Log out</string>
+    <string name="drawer_action_about">About</string>
+    <string name="faves_title">FAVES</string>
+    <string name="comments_title">COMMENTS</string>
+    <string name="photos_title">PHOTOS</string>
+    <string name="description_title">DESCRIPTION</string>
+    <string name="tags_title">TAGS</string>
+    <string name="no_faves">This photo has no faves yet.</string>
+    <string name="no_comments">This photo has no comments yet.</string>
+    <string name="no_tags">This photo has no tags.</string>
+    <string name="no_description">This photo has no description.</string>
+    <string name="search_hint">Search Flickr</string>
+    <string name="login_success_message">You were logged in successfully</string>
+    <string name="logout_success_message">You were logged out successfully</string>
+    <string name="photo_already_fav">Photo is already in favorites.</string>
+    <string name="permission_required">Please log in to Flickr first.</string>
+    <string name="unknown_error">There was an unknown error.</string>
+    <string name="more_label">MORE</string>
+    <string name="error_login">There was a problem logging into Flickr. Please try again.</string>
+    <string name="login_message_permission">Please let Planket access your Flickr account</string>
+    <string name="error_no_results">No results were found. Please try again.</string>
+    <string name="no_internet">Looks like you have no internet connection. Please try again.</string>
+    <string name="oh_no_title">Oh no!</string>
+    <string name="empty_box">You don\'t have anything in your box! Upload some pictures or fav something.</string>
+    <string name="try_again">TRY AGAIN</string>
+    <string name="retry">Retry</string>
+    <string name="about_app">ABOUT PLANKET</string>
+    <string name="app_description">Planket is an unofficial Flickr client for Android using Model View Presenter, dependency injection and Reactive programming.</string>
+    <string name="developed_by">Planket is developed by:</string>
+    <string name="my_name">Fernando Ortega Martinez</string>
+    <string name="project">PROJECT</string>
+    <string name="project_description">The following libraries have been used to write Planket:</string>
+    <string name="no_results">No results</string>
+    <string name="repository"><![CDATA[<a href="https://github.com/FernandoOrtegaMartinez/Planket">Planket</a>]]></string>
+</resources>

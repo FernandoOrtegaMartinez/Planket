@@ -1,0 +1,2 @@
+include ':Planket'
+project(':Planket').projectDir = new File('app')

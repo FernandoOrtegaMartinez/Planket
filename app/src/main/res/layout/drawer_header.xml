@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="@dimen/drawer_header_height"
+    android:background="@color/darkGreyPlanket"
+    xmlns:tools="http://schemas.android.com/tools">
+
+
+    <RelativeLayout
+        android:id="@+id/no_logged_in_layout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_alignParentBottom="true"
+        android:background="@drawable/yellow_selector">
+
+        <com.fomdeveloper.planket.ui.view.widget.PlanketTextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="@string/app_title"
+            android:gravity="center"
+            android:layout_marginTop="@dimen/drawer_header_margin_top"
+            android:textColor="@color/white"
+            android:textSize="@dimen/textview_apptitle_textsize"/>
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/logged_in_layout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_alignParentBottom="true"
+        android:background="@drawable/dark_grey_selector"
+        android:visibility="gone">
+
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="@dimen/drawer_header_margin_top"
+            android:layout_marginLeft="@dimen/margin_big">
+
+            <ImageView
+                android:id="@+id/profile_pic"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/profile"
+                android:layout_centerVertical="true"
+                />
+
+            <TextView
+                android:id="@+id/user_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/white"
+                tools:text="User name"
+                android:layout_toRightOf="@id/profile_pic"
+                android:layout_toEndOf="@+id/profile_pic"
+                android:layout_marginLeft="@dimen/margin_small"
+                android:layout_marginStart="@dimen/margin_small"
+                android:layout_centerVertical="true"
+                />
+
+            <View
+                android:layout_width="@dimen/square_icon"
+                android:layout_height="@dimen/square_icon"
+                android:layout_centerVertical="true"
+                android:layout_alignParentRight="true"
+                android:layout_marginRight="@dimen/margin_big"
+                android:background="@color/yellowPlanket"/>
+
+        </RelativeLayout>
+
+
+    </RelativeLayout>
+
+
+</RelativeLayout>

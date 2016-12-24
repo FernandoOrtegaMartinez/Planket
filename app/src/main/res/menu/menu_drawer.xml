@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <group android:checkableBehavior="single">
+        <item android:id="@+id/action_interestingness"
+            android:icon="@drawable/ic_drawer_interestingness"
+            android:orderInCategory="1"
+            android:title="@string/drawer_action_interestingness"/>
+
+        <item android:id="@+id/action_about"
+            android:icon="@drawable/ic_drawer_about"
+            android:orderInCategory="2"
+            android:title="@string/drawer_action_about"/>
+
+        <item android:id="@+id/action_login"
+            android:icon="@drawable/ic_drawer_login"
+            android:orderInCategory="3"
+            android:checkable="false"
+            android:title="@string/drawer_action_login"/>
+
+    </group>
+
+</menu>
