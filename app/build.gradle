@@ -17,6 +17,8 @@ android {
 
         multiDexEnabled true
 
+        testInstrumentationRunner "com.fomdeveloper.planket.runner.MockTestRunner"
+
         buildConfigField("String", "FLICKR_API_KEY","\"${flickrApiKey}\"")
         buildConfigField("String", "FLICKR_CONSUMER_SECRET","\"${flickrConsumerSecret}\"")
 
