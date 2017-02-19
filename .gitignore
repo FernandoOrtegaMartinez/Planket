@@ -9,3 +9,5 @@
 /build
 /captures
 /.idea
+fabric.properties
+/app/src/release/AndroidManifest.xml

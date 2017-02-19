@@ -1,4 +1,10 @@
 apply plugin: 'com.android.application'
+apply plugin: 'io.fabric'
+
+repositories {
+    maven { url 'https://maven.fabric.io/public' }
+}
+
 apply plugin: 'com.neenbedankt.android-apt'
 apply plugin: 'realm-android'
 
@@ -34,6 +40,7 @@ android {
         debug {
             minifyEnabled false
             testCoverageEnabled true
+            ext.enableCrashlytics = false
         }
         release {
             minifyEnabled true
@@ -101,6 +108,11 @@ dependencies {
 
     // Logging
     compile 'com.jakewharton.timber:timber:3.1.0'
+
+    // Crashlytics
+    compile('com.crashlytics.sdk.android:crashlytics:2.6.0@aar') {
+        transitive = true;
+    }
 
     // Testing
     testCompile "junit:junit:4.12"
