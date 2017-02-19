@@ -25,7 +25,10 @@ public class Comment extends Ego {
     @SerializedName("datecreate")
     private String dateCreated;
 
+    @SerializedName("iconserver")
     private String iconserver;
+
+    @SerializedName("iconfarm")
     private String iconfarm;
 
     @Override

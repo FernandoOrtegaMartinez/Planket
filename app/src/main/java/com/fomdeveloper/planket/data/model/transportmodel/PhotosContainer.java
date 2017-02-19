@@ -14,15 +14,19 @@ import java.util.ArrayList;
 public class PhotosContainer {
 
     @Expose
+    @SerializedName("page")
     private int page;
 
     @Expose
+    @SerializedName("pages")
     private int pages;
 
     @Expose
+    @SerializedName("perpage")
     private int perpage;
 
     @Expose
+    @SerializedName("total")
     private int total;
 
 

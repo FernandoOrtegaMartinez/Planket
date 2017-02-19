@@ -16,10 +16,14 @@ public class Fave extends Ego{
     @SerializedName("realname")
     private String realName;
 
+    @SerializedName("favedate")
     private String favedate;
-    private String iconserver;
-    private String iconfarm;
 
+    @SerializedName("iconserver")
+    private String iconserver;
+
+    @SerializedName("iconfarm")
+    private String iconfarm;
 
     @Override
     protected String getProfilePicUrl() {
