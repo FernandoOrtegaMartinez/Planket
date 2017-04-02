@@ -1,12 +1,15 @@
 # Planket
 Planket is an unofficial Flickr client for Android using MVP, Dagger 2 and RxJava among other open source libraries.
 
+[![See Planket on Google Play](art/google_play_badge.png)](https://play.google.com/store/apps/details?id=com.fomdeveloper.planket)
+
 ## Screenshots
 <p align="center">
     <img src="art/planket.png" alt="Planket Screens"/>
 </p>
+
 ## Setup
-In order to use and compile the project, you'll need to add your own *API key* and *Consumer secret key* to the gradle.properties file:
+In order to use and compile the project, you'll need to add your own *API key* and *Consumer secret key* to your gradle.properties file:
 ```
 ###############################################################################
 # App variables.
@@ -47,9 +50,7 @@ Currently the application allows you to:
 ## Contributing
 There are a lot to do yet and PR are always welcome!
 If you find something wrong, please report it as an issue.
-If you think you can improve something or add a new feature, fork the repo and make a pull request against my develop branch. If you want to contribute but you don't know what to do, drop me an email and I'll give you some ideas.
-
-Please don't push your gradle.properties with your Flickr api keys!
+If you think you can improve something or add a new feature, fork the repo and make a pull request against my develop branch.
 
 ## License
 Please check the [license](https://github.com/FernandoOrtegaMartinez/Planket/blob/master/LICENSE) file.
