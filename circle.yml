@@ -3,41 +3,51 @@
 #
 
 general:
-    artifacts:
-     - /home/ubuntu/Planket/app/build/outputs/apk/
+  artifacts:
+    - /home/ubuntu/Planket/app/build/outputs/apk/
 
 machine:
-   environment:
-     ANDROID_HOME: /usr/local/android-sdk-linux
+  java:
+    version: oraclejdk8
+  python:
+    version: 2.7.10
+  environment:
+    GRADLE_OPTS: '-Dorg.gradle.jvmargs="-Xmx2048m -XX:+HeapDumpOnOutOfMemoryError"'
+    TEST_FLAGS: "--configure-on-demand -PdisablePreDex"
+    TERM: "dumb"
+    ADB_INSTALL_TIMEOUT: "10"
 
 dependencies:
   pre:
-    - android list sdk --extended
-    - echo y | android update sdk --no-ui --all --filter "tools,platform-tools,android-23"
-    - echo y | android update sdk --no-ui --all --filter "build-tools-23.0.3"
-    - echo y | android update sdk --no-ui --all --filter "extra-android-m2repository"
+    - source environmentSetup.sh && copyEnvVarsToGradleProperties
+    - if [ ! -e /usr/local/android-sdk-linux/build-tools/23.0.3 ]; then echo y | android update sdk --all --no-ui --filter "build-tools-23.0.3"; fi;
+    - if [ ! -e /usr/local/android-sdk-linux/platforms/android-23 ]; then echo y | android update sdk --all --no-ui --filter "android-23"; fi;
+    - if ! $(grep -q "Revision=44.0.0" /usr/local/android-sdk-linux/extras/android/m2repository/source.properties); then echo y | android update sdk --all --no-ui --filter "extra-android-m2repository"; fi;
+  cache_directories:
+    - /usr/local/android-sdk-linux/build-tools/23.0.3
+    - /usr/local/android-sdk-linux/platforms/android-23
+    - /usr/local/android-sdk-linux/extras/android/m2repository
 
 test:
-  pre:
-    - android list targets
-    - echo no | android create avd -n emulatorwithgoogleapi22 -t 9 --abi google_apis/armeabi-v7a
-    - echo 'vm.heapSize=512' >> ~/.android/avd/emulatorwithgoogleapi22.ini
-    - echo 'hw.ramSize=1024' >> ~/.android/avd/emulatorwithgoogleapi22.ini
-    - cat ~/.android/avd/emulatorwithgoogleapi22.ini
-    - emulator -avd emulatorwithgoogleapi22 -no-audio -no-window :
-        background: true
-        parallel: true
-    - circle-android wait-for-boot
-    - adb shell input keyevent 82
-    - adb shell svc power stayon true
-    - adb shell settings put global window_animation_scale 0
-    - adb shell settings put global transition_animation_scale 0
-    - adb shell settings put global animator_duration_scale 0
-
   override:
     - ./gradlew test
-    - ./gradlew assembleDebug
-    - ./gradlew connectedDebugAndroidTest
+    - ./gradlew assembleDebug -PdisablePreDex
 
-  post:
-    - cp -r app/build/outputs $CIRCLE_ARTIFACTS
+deployment:
+  espresso:
+    branch: develop
+    commands:
+      - emulator -avd circleci-android22 -no-audio -no-window:
+          background: true
+          parallel: true
+      # wait for it to have booted
+      - circle-android wait-for-boot
+      # unlock the emulator screen
+      - sleep 30
+      - adb shell input keyevent 82
+      # run tests  against the emulator.
+      - ./gradlew connectedDebugAndroidTest -PdisablePreDex
+      # copy the build outputs to artifacts
+      - cp -r app/build/outputs $CIRCLE_ARTIFACTS
+      # copy the test results to the test results directory.
+      - cp -r app/build/outputs/androidTest-results/* $CIRCLE_TEST_REPORTS
