@@ -9,7 +9,6 @@ android:layout_height="match_parent"
 android:fitsSystemWindows="true"
 tools:context=".ui.presentation.main.MainActivity">
 
-
 <android.support.design.widget.AppBarLayout
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
@@ -35,7 +34,6 @@ tools:context=".ui.presentation.main.MainActivity">
 
     </android.support.v7.widget.Toolbar>
 
-
 </android.support.design.widget.AppBarLayout>
 
     <android.support.v4.widget.NestedScrollView
@@ -59,7 +57,7 @@ tools:context=".ui.presentation.main.MainActivity">
                 card_view:elevation="@dimen/cardview_elevation">
 
                 <LinearLayout
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="vertical"
                     android:layout_margin="@dimen/margin_medium">
@@ -97,7 +95,6 @@ tools:context=".ui.presentation.main.MainActivity">
                         android:gravity="center"
                         android:text="@string/my_name"/>
 
-
                 </LinearLayout>
 
             </android.support.v7.widget.CardView>
@@ -112,7 +109,7 @@ tools:context=".ui.presentation.main.MainActivity">
                 card_view:elevation="@dimen/cardview_elevation">
 
                 <LinearLayout
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="vertical"
                     android:layout_margin="@dimen/margin_medium">
@@ -236,14 +233,13 @@ tools:context=".ui.presentation.main.MainActivity">
 
                     </LinearLayout>
 
-
                     <com.fomdeveloper.planket.ui.view.widget.SmallGreyTextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:textColor="@color/colorDefaultText"
                         android:layout_marginTop="@dimen/margin_medium"
                         android:layout_gravity="center"
-                        android:text="The source code is available on Github:"
+                        android:text="@string/available_github"
                         android:id="@+id/smallGreyTextView" />
 
 
@@ -257,10 +253,6 @@ tools:context=".ui.presentation.main.MainActivity">
                         android:gravity="center"
                         android:text="@string/repository"/>
 
-
-
-
-
                 </LinearLayout>
 
             </android.support.v7.widget.CardView>
@@ -268,8 +260,6 @@ tools:context=".ui.presentation.main.MainActivity">
         </LinearLayout>
 
     </android.support.v4.widget.NestedScrollView>
-
-
 
 </android.support.design.widget.CoordinatorLayout>
 

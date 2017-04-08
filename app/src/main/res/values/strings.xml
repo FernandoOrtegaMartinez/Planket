@@ -38,4 +38,5 @@
     <string name="project_description">The following libraries have been used to write Planket:</string>
     <string name="no_results">No results</string>
     <string name="repository"><![CDATA[<a href="https://github.com/FernandoOrtegaMartinez/Planket">Planket</a>]]></string>
+    <string name="available_github">The source code is available on Github:</string>
 </resources>
