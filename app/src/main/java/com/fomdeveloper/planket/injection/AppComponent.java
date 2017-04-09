@@ -1,5 +1,6 @@
 package com.fomdeveloper.planket.injection;
 
+import com.fomdeveloper.planket.ui.presentation.gallery.GalleryActivity;
 import com.fomdeveloper.planket.ui.presentation.login.FlickrLoginActivity;
 import com.fomdeveloper.planket.ui.presentation.ego.CommentsFragment;
 import com.fomdeveloper.planket.ui.presentation.ego.EgoActivity;
@@ -31,4 +32,5 @@ public interface AppComponent {
     void inject(MainActivity mainActivity);
     void inject(ProfileActivity profileActivity);
     void inject(FlickrLoginActivity flickrLoginActivity);
+    void inject(GalleryActivity galleryActivity);
 }

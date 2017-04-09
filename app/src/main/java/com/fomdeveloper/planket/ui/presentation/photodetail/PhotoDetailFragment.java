@@ -1,5 +1,6 @@
 package com.fomdeveloper.planket.ui.presentation.photodetail;
 
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -16,8 +17,8 @@ import com.fomdeveloper.planket.PlanketApplication;
 import com.fomdeveloper.planket.R;
 import com.fomdeveloper.planket.data.model.PhotoItem;
 import com.fomdeveloper.planket.data.prefs.UserHelper;
-import com.fomdeveloper.planket.ui.presentation.login.FlickrLoginActivity;
 import com.fomdeveloper.planket.ui.presentation.ego.EgoActivity;
+import com.fomdeveloper.planket.ui.presentation.login.FlickrLoginActivity;
 import com.fomdeveloper.planket.ui.presentation.profile.ProfileActivity;
 import com.fomdeveloper.planket.ui.presentation.searchphotos.SearchActivity;
 import com.fomdeveloper.planket.ui.presentation.searchphotos.SearchType;
@@ -33,7 +34,6 @@ import org.parceler.Parcels;
 
 import javax.inject.Inject;
 
-
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
@@ -46,37 +46,23 @@ public class PhotoDetailFragment extends Fragment implements PhotoDetailView {
     private static final String ARG_PHOTO = "ARG.PHOTO";
     private PhotoItem photoItem;
 
-    @BindView(R.id.photo)
-    ImageView photoImageView;
-    @BindView(R.id.faves)
-    TextIconButton favesButton;
-    @BindView(R.id.comments)
-    TextIconButton commentsButton;
-    @BindView(R.id.profile_pic)
-    ImageView profilePicImageView;
-    @BindView(R.id.user_name)
-    TextView userNameTextView;
-    @BindView(R.id.pic_name)
-    TextView picNameTextView;
-    @BindView(R.id.location_name)
-    TextView locationNameTextView;
-    @BindView(R.id.description)
-    HtmlTextView descriptionTextView;
-    @BindView(R.id.tags_container)
-    FlowLayout tagsContainer;
-    @BindView(R.id.fab)
-    FloatingActionButton favButton;
+    @BindView(R.id.photo) ImageView photoImageView;
+    @BindView(R.id.faves) TextIconButton favesButton;
+    @BindView(R.id.comments) TextIconButton commentsButton;
+    @BindView(R.id.profile_pic) ImageView profilePicImageView;
+    @BindView(R.id.user_name) TextView userNameTextView;
+    @BindView(R.id.pic_name) TextView picNameTextView;
+    @BindView(R.id.location_name) TextView locationNameTextView;
+    @BindView(R.id.description) HtmlTextView descriptionTextView;
+    @BindView(R.id.tags_container) FlowLayout tagsContainer;
+    @BindView(R.id.fab) FloatingActionButton favButton;
 
-
-    @Inject
-    PhotoDetailPresenter presenter;
-    @Inject
-    UserHelper userHelper;
-    @Inject
-    Picasso picasso;
+    @Inject PhotoDetailPresenter presenter;
+    @Inject UserHelper userHelper;
+    @Inject Picasso picasso;
 
     private boolean isPhotoFavorite;
-
+    private PhotoDetailListener photoDetailListener;
 
     public static PhotoDetailFragment newInstance(PhotoItem photoItem) {
         Bundle args = new Bundle();
@@ -85,6 +71,17 @@ public class PhotoDetailFragment extends Fragment implements PhotoDetailView {
         PhotoDetailFragment fragment = new PhotoDetailFragment();
         fragment.setArguments(args);
         return fragment;
+    }
+
+    @Override
+    public void onAttach(Context context) {
+        super.onAttach(context);
+        if (context instanceof PhotoDetailListener){
+            photoDetailListener = (PhotoDetailListener)context;
+        }else{
+            throw new ClassCastException(context.toString()
+                    + " must implement PhotoDetailListener");
+        }
     }
 
     @Override
@@ -209,8 +206,13 @@ public class PhotoDetailFragment extends Fragment implements PhotoDetailView {
     }
 
     @OnClick(R.id.user_layout)
-    public void onClickUserLayout(View view){
+    public void onClickUserLayout(){
         ProfileActivity.start(getActivity(),photoItem.getUserId());
+    }
+
+    @OnClick(R.id.photo)
+    public void onClickPhoto(){
+        photoDetailListener.openGallery();
     }
 
     private View.OnClickListener onTagListener = new View.OnClickListener() {

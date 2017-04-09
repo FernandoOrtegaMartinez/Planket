@@ -21,7 +21,7 @@ public interface FlickrService {
     String PARAM_API_KEY = "api_key";
     String PARAM_FORMAT = "format";
     String PARAM_JSONCALLBACK = "nojsoncallback";
-    String EXTRAS_URL = "url_s,url_z,tags,count_faves,count_comments,icon_server,owner_name,date_upload,geo,description";
+    String EXTRAS_URL = "url_s,url_z,url_h,tags,count_faves,count_comments,icon_server,owner_name,date_upload,geo,description";
 
 
     @GET("?method=flickr.interestingness.getList&per_page=100&extras="+EXTRAS_URL)

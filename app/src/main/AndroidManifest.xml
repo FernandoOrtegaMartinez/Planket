@@ -55,6 +55,10 @@
             android:theme="@style/AppTheme.NoActionBarStatusBarTrans"
             android:screenOrientation="portrait"/>
 
+        <activity android:name="com.fomdeveloper.planket.ui.presentation.gallery.GalleryActivity"
+            android:theme="@style/AppTheme.NoActionBarStatusBarTrans"
+            android:parentActivityName="com.fomdeveloper.planket.ui.presentation.photodetail.PhotoDetailActivity"/>
+
     </application>
 
 </manifest>

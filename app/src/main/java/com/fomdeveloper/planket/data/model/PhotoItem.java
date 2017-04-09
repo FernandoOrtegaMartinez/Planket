@@ -32,6 +32,9 @@ public class PhotoItem implements UserProfileInfo {
     @SerializedName("url_z")
     String urlMedium;
 
+    @SerializedName("url_h")
+    String urlLarge;
+
     @SerializedName("count_faves")
     String numFaves;
 
@@ -100,6 +103,10 @@ public class PhotoItem implements UserProfileInfo {
 
     public String getUrlMedium() {
         return urlMedium;
+    }
+
+    public String getUrlLarge() {
+        return urlLarge;
     }
 
     public void setUrlMedium(String urlMedium) {
