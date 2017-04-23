@@ -20,12 +20,12 @@ machine:
 dependencies:
   pre:
     - source environmentSetup.sh && copyEnvVarsToGradleProperties
-    - if [ ! -e /usr/local/android-sdk-linux/build-tools/23.0.3 ]; then echo y | android update sdk --all --no-ui --filter "build-tools-23.0.3"; fi;
-    - if [ ! -e /usr/local/android-sdk-linux/platforms/android-23 ]; then echo y | android update sdk --all --no-ui --filter "android-23"; fi;
-    - if ! $(grep -q "Revision=44.0.0" /usr/local/android-sdk-linux/extras/android/m2repository/source.properties); then echo y | android update sdk --all --no-ui --filter "extra-android-m2repository"; fi;
+    - if [ ! -e /usr/local/android-sdk-linux/build-tools/25.0.2 ]; then echo y | android update sdk --all --no-ui --filter "build-tools-25.0.2"; fi;
+    - if [ ! -e /usr/local/android-sdk-linux/platforms/android-25 ]; then echo y | android update sdk --all --no-ui --filter "android-25"; fi;
+    - if ! $(grep -q "Revision=47.0.0" /usr/local/android-sdk-linux/extras/android/m2repository/source.properties); then echo y | android update sdk --all --no-ui --filter "extra-android-m2repository"; fi;
   cache_directories:
-    - /usr/local/android-sdk-linux/build-tools/23.0.3
-    - /usr/local/android-sdk-linux/platforms/android-23
+    - /usr/local/android-sdk-linux/build-tools/25.0.2
+    - /usr/local/android-sdk-linux/platforms/android-25
     - /usr/local/android-sdk-linux/extras/android/m2repository
 
 test:
@@ -37,7 +37,7 @@ deployment:
   espresso:
     branch: develop
     commands:
-      - emulator -avd circleci-android22 -no-audio -no-window:
+      - emulator -avd circleci-android22 -no-window -gpu off:
           background: true
           parallel: true
       # wait for it to have booted
