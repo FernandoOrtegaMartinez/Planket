@@ -1,3 +1,5 @@
+[![CircleCI](https://circleci.com/gh/FernandoOrtegaMartinez/Planket.svg?style=svg)](https://circleci.com/gh/FernandoOrtegaMartinez/Planket)
+
 # Planket
 Planket is an unofficial Flickr client for Android using MVP, Dagger 2 and RxJava among other open source libraries.
 
